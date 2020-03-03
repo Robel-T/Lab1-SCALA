@@ -10,7 +10,15 @@ object SpellChecker {
     * @return an integer value, which indicates the Levenshtein distance between "s1" and "s2"
     */
   // TODO - Step 2
-  def stringDistance(s1: String, s2: String): Int = ???
+  def stringDistance(s1: String, s2: String): Int = {
+    def loop(indice: Int, acc:Int, s1:String, s2:String): Int ={
+      if(indice > Math.min(s1.length(),s2.length())) acc + Math.abs(s1.length() - s2.length())
+      else
+      if(s1.charAt(indice) != s2.charAt(indice)) loop(indice+1, acc+1, s1, s2)
+    }
+    loop(0,0,s1,s2)
+
+  }
 
   /**
     * Get the syntactically closest word in the dictionary from the given misspelled word, using the "stringDistance"
