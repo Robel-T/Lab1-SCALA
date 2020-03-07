@@ -32,5 +32,12 @@ object SpellChecker {
     * @return the closest word from "misspelledWord"
     */
   // TODO - Step 2
-  def getClosestWordInDictionary(misspelledWord: String): String = ???
+  def getClosestWordInDictionary(misspelledWord: String): String = {
+    val reg = "[0-9]".r
+    misspelledWord match {
+      case str if str.startsWith("_") => str
+      case str if reg.findFirstIn(str).isDefined => str
+      case _ => "OKE"
+    }
+  }
 }

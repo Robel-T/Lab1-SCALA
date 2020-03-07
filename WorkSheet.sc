@@ -32,3 +32,15 @@ def stringDistance(s1: String, s2: String): Int = {
 }
 
 stringDistance("Maman", "papa")
+
+
+def getClosestWordInDictionary(misspelledWord: String): String = {
+val reg = "[0-9]".r
+  misspelledWord match {
+    case str if str.startsWith("_") => str
+    case str if reg.findFirstIn(str).isDefined => str
+    case _ => "OKE"
+  }
+}
+
+getClosestWordInDictionary("Robel")
