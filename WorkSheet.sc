@@ -25,14 +25,14 @@ def stringDistance(s1: String, s2: String): Int = {
       Math.max(i, j)
     }
     else {
-      val k = if (s1.charAt(i) == s2.charAt(j)) 0 else 1
+      val k = if (s1.charAt(i - 1) == s2.charAt(j-1)) 0 else 1
       Math.min(Math.min(loop(i - 1, j) + 1,loop(i - 1, j - 1) + k ), loop(i, j - 1) + 1)
     }
   }
-  loop(s1.length-1,s2.length-1)
+  loop(s1.length,s2.length)
 }
 
-stringDistance("robel", "simon")
+stringDistance("bnjout", "bonjour")
 
 
 def getClosestWordInDictionary(misspelledWord: String): String = {
@@ -49,4 +49,4 @@ getClosestWordInDictionary("Robel")
 
 
 
-dictionary.map(x=>stringDistance("bnjout",x._2))
+
