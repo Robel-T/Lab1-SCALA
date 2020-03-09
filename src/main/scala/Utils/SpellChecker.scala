@@ -33,6 +33,11 @@ object SpellChecker {
     */
   // TODO - Step 2
   def getClosestWordInDictionary(misspelledWord: String): String = {
+
+    def loop(motRetenu: String, distanceRetenu: Int):String={
+      dictionary.map(x=>stringDistance(misspelledWord,x._2))
+    }
+
     val reg = "[0-9]".r
     misspelledWord match {
       case str if str.startsWith("_") => str

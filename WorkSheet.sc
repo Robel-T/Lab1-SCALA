@@ -1,4 +1,6 @@
 import Utils.ClinksCalculator.factorial
+import Utils.Dictionary.dictionary
+import Utils.SpellChecker.stringDistance
 
 def factorial(n: Int): Int = {
   def loop(acc: Int, n: Int): Int ={
@@ -17,21 +19,20 @@ def calculateCombination(n: Int, k: Int): Int = {
 calculateCombination(4,2)
 
 def stringDistance(s1: String, s2: String): Int = {
-  def loop(indice: Int, acc:Int, s1:String, s2:String): Int ={
+  def loop(i: Int, j:Int): Int ={
 
-    if(indice > Math.min(s1.length()-1,s2.length()-1)){
-      acc + Math.abs(s1.length() - s2.length())
+    if(Math.min(i,j) == 0){
+      Math.max(i, j)
     }
-    else{
-
-      if(s1.toLowerCase().charAt(indice) != s2.toLowerCase().charAt(indice)) loop(indice+1, acc+1, s1, s2)
-      else loop(indice+1, acc, s1, s2)
+    else {
+      val k = if (s1.charAt(i) == s2.charAt(j)) 0 else 1
+      Math.min(Math.min(loop(i - 1, j) + 1,loop(i - 1, j - 1) + k ), loop(i, j - 1) + 1)
     }
   }
-  loop(0,0,s1,s2)
+  loop(s1.length-1,s2.length-1)
 }
 
-stringDistance("Maman", "papa")
+stringDistance("robel", "simon")
 
 
 def getClosestWordInDictionary(misspelledWord: String): String = {
@@ -44,3 +45,8 @@ val reg = "[0-9]".r
 }
 
 getClosestWordInDictionary("Robel")
+
+
+
+
+dictionary.map(x=>stringDistance("bnjout",x._2))
