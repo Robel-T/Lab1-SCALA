@@ -5,11 +5,14 @@ import Utils.Dictionary.dictionary
 import Utils.SpellChecker._
 
 class Tokenizer(input: String) {
+  var token: List[String] = List()
   /**
     * Separate the user's input into tokens.
     */
   // TODO - Step 3
-  def tokenize(): Unit = ???
+  def tokenize(): Unit = {
+      token = input.replaceAll("[^_a-zA-Z0-9 ]", "").split(" ").toList
+  }
 
   /**
     * Get the next token of the user input, or OEL if there is no more token.

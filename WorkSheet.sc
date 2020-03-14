@@ -1,3 +1,4 @@
+import Chat.Tokens.Token
 import Utils.ClinksCalculator.factorial
 import Utils.Dictionary.dictionary
 import Utils.SpellChecker.stringDistance
@@ -35,7 +36,7 @@ def stringDistance(s1: String, s2: String): Int = {
 stringDistance("robel", "Robel")
 
 
-def getClosestWordInDictionary(misspelledWord: String): String = {
+def getClosestWordInDictionary(misspelledWord: String): Any = {
 
   val reg = "[0-9]".r
   misspelledWord match {
@@ -46,9 +47,17 @@ def getClosestWordInDictionary(misspelledWord: String): String = {
   }
 }
 
-getClosestWordInDictionary("bonjour")
+getClosestWordInDictionary("bieeeere")
 
 
+val string: String  = "j' aime"
+var token:List[String] = List()
+
+
+
+def nextToken(): (String, Token) = {
+  ("ik","ij")
+}
 
 
 
