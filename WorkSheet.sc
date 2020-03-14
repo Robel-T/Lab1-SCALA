@@ -1,3 +1,4 @@
+import Chat.Tokens
 import Chat.Tokens.Token
 import Utils.ClinksCalculator.factorial
 import Utils.Dictionary.dictionary
@@ -50,14 +51,20 @@ def getClosestWordInDictionary(misspelledWord: String): Any = {
 getClosestWordInDictionary("bieeeere")
 
 
-val string: String  = "j' aime"
+val input: String  = "j' aime"
 var token:List[String] = List()
 
-
-
-def nextToken(): (String, Token) = {
-  ("ik","ij")
+def tokenize(): Unit = {
+  token = input.replaceAll("[^_a-zA-Z0-9 ]", "").split(" ").toList
 }
 
+
+def nextToken(): (String, Token) ={
+token match {
+  case str if str.startsWith("_") => (str, Tokens.PSEUDO)
+  case _ => getClosestWordInDictionary(input)
+}
+
+}
 
 

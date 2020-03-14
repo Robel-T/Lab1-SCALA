@@ -19,5 +19,7 @@ class Tokenizer(input: String) {
   	* @return a tuple that contains the string value of the current token, and the identifier of the token
     */
   // TODO - Step 3
-  def nextToken(): (String, Token) = ???
+  def nextToken(): (String, Token) ={
+
+  }
 }
