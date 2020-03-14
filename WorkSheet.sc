@@ -32,19 +32,21 @@ def stringDistance(s1: String, s2: String): Int = {
   loop(s1.length,s2.length)
 }
 
-stringDistance("bnjout", "bonjour")
+stringDistance("robel", "Robel")
 
 
 def getClosestWordInDictionary(misspelledWord: String): String = {
-val reg = "[0-9]".r
+
+  val reg = "[0-9]".r
   misspelledWord match {
     case str if str.startsWith("_") => str
     case str if reg.findFirstIn(str).isDefined => str
-    case _ => "OKE"
+    case _ => dictionary.map(x => (x._2,stringDistance(misspelledWord, x._2))).minBy(_._2)._1
+
   }
 }
 
-getClosestWordInDictionary("Robel")
+getClosestWordInDictionary("bonjour")
 
 
 
