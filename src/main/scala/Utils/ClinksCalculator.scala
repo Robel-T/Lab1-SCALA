@@ -1,3 +1,11 @@
+/*
+*
+* Laboratory 1
+* File: ClinksCalculator.scala
+* Students: Jobin Simon, Teklehaimanot Robel
+*
+ */
+
 package Utils
 
 /**
@@ -10,6 +18,8 @@ object ClinksCalculator {
     * @return n!
     */
   def factorial(n: Int): Int = {
+
+    // Use recursive terminal
     def loop(acc: Int, n: Int): Int ={
       if(n == 0) acc
       else loop(acc*n, n-1)

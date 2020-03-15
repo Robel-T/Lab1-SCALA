@@ -1,3 +1,11 @@
+/*
+*
+* Laboratory 1
+* File: Main.scala
+* Students: Jobin Simon, Teklehaimanot Robel
+*
+ */
+
 import Chat.Tokenizer
 import Chat.Tokens._
 import Utils.ClinksCalculator.calculateCombination

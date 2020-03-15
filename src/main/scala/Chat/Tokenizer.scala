@@ -1,7 +1,15 @@
+/*
+*
+* Laboratory 1
+* File: Tokenizer.scala
+* Students: Jobin Simon, Teklehaimanot Robel
+*
+ */
+
+
 package Chat
 
 import Tokens._
-import Utils.Dictionary.dictionary
 import Utils.SpellChecker._
 
 class Tokenizer(input: String) {
@@ -10,7 +18,6 @@ class Tokenizer(input: String) {
   /**
     * Separate the user's input into tokens.
     */
-  // TODO - Step 3
   def tokenize(): Unit = {
     // replace all special chars and multiple spaces with simple space and add EOL to the end
     token = input.replaceAll("[^_a-zA-Z0-9] +", " ").split(" ").toList.:+("\n")
@@ -21,12 +28,13 @@ class Tokenizer(input: String) {
     *
     * @return a tuple that contains the string value of the current token, and the identifier of the token
     */
-  // TODO - Step 3
   def nextToken(): (String, Token) = {
 
+    // take the next token
     val first = token.head
     token = token.tail
 
+    // get the word close to the token
     val normalized = getClosestWordInDictionary(first)
     normalized match {
 

@@ -1,3 +1,11 @@
+/*
+*
+* Laboratory 1
+* File: Dictionary.scala
+* Students: Jobin Simon, Teklehaimanot Robel
+*
+ */
+
 package Utils
 
 /**

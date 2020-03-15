@@ -1,3 +1,11 @@
+/*
+*
+* Laboratory 1
+* File: Tokens.scala
+* Students: Jobin Simon, Teklehaimanot Robel
+*
+ */
+
 package Chat
 
 object Tokens {
